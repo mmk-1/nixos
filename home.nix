@@ -3,6 +3,9 @@
 {
   home.username = "mmk";
   home.homeDirectory = "/home/mmk";
+  imports = [
+    # ./editors/nvim
+  ];
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -27,8 +30,11 @@
     
     # browsers
     microsoft-edge
-
+    firefox
+    
+    # Editors
     vscode
+    neovim
   ];
 
   programs.bash = {

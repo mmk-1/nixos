@@ -8,9 +8,12 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    # System
     nixosConfigurations = {
       "legion" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -25,7 +28,6 @@
             home-manager.users.mmk = import ./home.nix;
           }
         ];
-
       };
     };
   };
