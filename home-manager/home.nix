@@ -49,7 +49,7 @@
     neovim
 
     # Other
-    docker
+    # docker
   ];
 
   programs.vscode = {

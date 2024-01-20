@@ -103,11 +103,19 @@
   users.users.mmk = {
     isNormalUser = true;
     description = "mmk";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Auto delete garbage each week.
   nix.gc = {
@@ -127,6 +135,7 @@
     vim
     microsoft-edge
     vscode
+    gparted
     # inputs.home-manager.packages.${pkgs.system}.default
   ];
 
