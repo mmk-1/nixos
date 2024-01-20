@@ -11,7 +11,7 @@
 
   nixpkgs = {
     overlays = [
-      # Don't have any 
+      # Don't have any
     ];
 
     config = {
@@ -40,14 +40,27 @@
     # misc
     which
     tree
-    
+
     # browsers
     # microsoft-edge
-    
+
     # Editors
     # vscode
     neovim
+
+    # Other
+    docker
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      kamadorueda.alejandra
+      github.copilot
+      ms-vscode-remote.remote-containers
+    ];
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

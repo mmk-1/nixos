@@ -5,11 +5,10 @@
   pkgs,
   ...
 }: {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./home-manager.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./home-manager.nix
+  ];
 
   # Bootloader.
   # TODO: Ask if there is a better way since the UIUD is hardcoded for Windows.
@@ -19,7 +18,7 @@
       efiSysMountPoint = "/boot";
     };
     grub = {
-      devices = [ "nodev" ];
+      devices = ["nodev"];
       efiSupport = true;
       enable = true;
       # set $FS_UUID to the UUID of the EFI partition
@@ -104,12 +103,12 @@
   users.users.mmk = {
     isNormalUser = true;
     description = "mmk";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # Auto delete garbage each week.
   nix.gc = {
     automatic = true;
@@ -117,9 +116,9 @@
     options = "--delete-older-than 1w";
   };
   nix.settings.auto-optimise-store = true;
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # System wide packages
   environment.systemPackages = with pkgs; [
     wget
