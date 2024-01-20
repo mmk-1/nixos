@@ -6,7 +6,9 @@
   ...
 }: {
   imports = [
-    # nvim
+    inputs.nixvim.homeManagerModules.nixvim
+
+    ./editors/nvim
   ];
 
   nixpkgs = {
@@ -46,7 +48,7 @@
 
     # Editors
     # vscode
-    neovim
+    # neovim
 
     # Other
     # docker

@@ -269,18 +269,18 @@
       };
     };
 
-    extraPlugins = with pkgs; [
-      vimPlugins.nvim-spectre
-      vimExtraPlugins.zellij-nvim
-    ];
+    # extraPlugins = with pkgs; [
+    #   vimPlugins.nvim-spectre
+    #   vimExtraPlugins.zellij-nvim
+    # ];
 
-    extraConfigLua = ''
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    # extraConfigLua = ''
+    #   vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-      require("spectre").setup()
-      require("zellij").setup({
-      		vimTmuxNavigatorKeybinds = true,
-      })
-    '';
+    #   require("spectre").setup()
+    #   require("zellij").setup({
+    #   		vimTmuxNavigatorKeybinds = true,
+    #   })
+    # '';
   };
 }
