@@ -52,6 +52,8 @@
 
     # Other
     # docker
+    # v2raya
+    qv2ray
   ];
 
   programs.vscode = {

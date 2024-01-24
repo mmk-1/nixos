@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ./home-manager.nix
+    ./fonts.nix
   ];
 
   # Bootloader.
@@ -140,6 +141,8 @@
   ];
 
   services.illum.enable = true;
+
+  services.flatpak.enable = true;
 
   system.stateVersion = "23.11";
 }
