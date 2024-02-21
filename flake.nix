@@ -1,21 +1,13 @@
 {
-  description = "Your new nix config";
-
+  description = "My Favorite NixOS flake!";
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-
-    # Home manager
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+         url = "github:nix-community/home-manager";
+         inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
 
   outputs = {
     self,
@@ -24,24 +16,39 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    stateVersion = "23.11";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        inputs.nur.overlay
+      ];
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+    };
+    username = "mmk"; #TODO change username
+    laptop = "legion"; #TODO change Laptop name
+    system = "x86_64-linux"; #TODO Rarely, change system architecture
   in {
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      legion = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/configuration.nix];
+      ${laptop} = nixpkgs.lib.nixosSystem { #TODO Change actual hostname
+        specialArgs = let hostname = "shirohebi"; in {inherit inputs username self system stateVersion hostname;};
+        # > Our main nixos configuration file <
+        modules = [./nixos/${laptop}/configuration.nix];
       };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
-    # homeConfigurations = {
-    #   # FIXME replace with your username@hostname
-    #   "mmk@legion" = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-    #     extraSpecialArgs = {inherit inputs outputs;};
-    #     # > Our main home-manager configuration file <
-    #     modules = [./home-manager/home.nix];
-    #   };
-    # };
+    homeConfigurations = {
+       "${username}@${laptop}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;# > Our main home-manager configuration file <
+        modules = [./nixos/${laptop}/home.nix];
+        extraSpecialArgs = let hostname = laptop; in {inherit username hostname self system stateVersion inputs;};
+      };
+    };
   };
 }
