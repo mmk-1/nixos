@@ -17,8 +17,8 @@
       # allowUnfreePredicate = _: true;
       };
   };
-	home.username = "${username}";
-	home.homeDirectory = "/home/${username}";
+	home.username = "mmk";
+	home.homeDirectory = "/home/mmk";
 	home.stateVersion = stateVersion;
 	programs.home-manager.enable = true;
 

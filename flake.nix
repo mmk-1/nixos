@@ -41,12 +41,14 @@
       };
     };
 
+    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-       "${username}@${laptop}" = home-manager.lib.homeManagerConfiguration {
+       "mmk@$legion" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;# > Our main home-manager configuration file <
-        modules = [./nixos/${laptop}/home.nix];
+        modules = [./nixos/legion/home.nix];
         extraSpecialArgs = let hostname = laptop; in {inherit username hostname self system stateVersion inputs;};
       };
     };
