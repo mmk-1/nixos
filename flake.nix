@@ -1,25 +1,43 @@
 {
-  description = "My Home Manager Flake";
+  description = "My Nix Flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim";
+
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    # For `nix run .` later
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      username = "mmk";
+      hostname = "legion";
+    in
+    {
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
-    homeConfigurations = {
-      "mmk" = home-manager.lib.homeManagerConfiguration {
-        # Note: I am sure this could be done better with flake-utils or something
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+      # Here: NixOS configurations 
 
-        modules = [ ./nixos/legion/home.nix ]; # Defined later
+      # Home-manager configurations
+      homeConfigurations = {
+        "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+          # pkgs = import nixpkgs { system = "x86_64-linux"; };
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [ ./hosts/legion/home.nix ];
+          extraSpecialArgs = { inherit inputs outputs; };
+        };
       };
     };
-  };
 }

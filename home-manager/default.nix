@@ -1,7 +1,16 @@
-{ pkgs, ... }: {
-  home.username = "mmk";
-  home.homeDirectory = "/home/mmk";
-  home.stateVersion = "22.11";
+{ inputs
+, lib
+, pkgs
+, ...
+}: {
+
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+
+    ./nvim
+  ];
+
+  programs.home-manager.enable = true;
 
   nixpkgs = {
     config = {
@@ -18,7 +27,6 @@
     # obsidian
     # dropbox
     # sioyek
+    # bitwarden
   ];
-
-  programs.home-manager.enable = true;
 }
