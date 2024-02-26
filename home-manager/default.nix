@@ -4,10 +4,14 @@
 , ...
 }: {
 
+  # home.homedire
+
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
-    ./nvim
+    # ./nvim
+    ./shell/xdg.nix
+    ./shell/zsh.nix
   ];
 
   programs.home-manager.enable = true;
@@ -28,5 +32,8 @@
     # dropbox
     # sioyek
     # bitwarden
+    fd
+    ripgrep
+    discord
   ];
 }
