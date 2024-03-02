@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }: {
   imports = [
     ./keymaps.nix
     ./options.nix
     # ./autocmds.nix
     # ./reload.nix
-    ./plugins/whichkey.nix
+    # ./plugins/whichkey.nix
+    ./plugins/telescope.nix
 
     # ./plugins/debug.nix
     # ./plugins/coding.nix
@@ -18,8 +18,9 @@
     # ./plugins/startup.nix
     # ./plugins/test.nix
 
-    # ./plugins/lsp.nix
-    # ./plugins/treesitter.nix
+    ./plugins/lsp.nix
+    ./plugins/treesitter.nix
+    ./plugins/conform.nix
 
     # ./plugins/colorscheme.nix
     # ./plugins/ui.nix
@@ -29,6 +30,7 @@
     # ./plugins/notes.nix
 
     # ./plugins/lang/css.nix
+    # ./plugins/lang/c.nix
     # ./plugins/lang/docker.nix
     # ./plugins/lang/go.nix
     # ./plugins/lang/lua.nix
@@ -43,8 +45,12 @@
 
   programs.nixvim = {
     enable = true;
-    extraPlugins = with pkgs.vimPlugins; [plenary-nvim];
+    extraPlugins = with pkgs.vimPlugins; [ plenary-nvim ];
     enableMan = true;
     # package = pkgs.neovim-nightly;
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+    };
   };
 }

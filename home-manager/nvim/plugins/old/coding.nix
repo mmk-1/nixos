@@ -37,7 +37,6 @@
           comment = {};
         };
       };
-      
       luasnip = {
         enable = true;
       };
