@@ -2,51 +2,47 @@
   programs.nixvim = {
     globals = {
       mapleader = " ";
-      maplocalleader = ",";
+      maplocalleader = " ";
     };
 
     options = {
-      sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
-      switchbuf = "useopen,uselast";
-      termguicolors = true;
-      scrolloff = 8;
-      swapfile = false;
-      hlsearch = false;
-      incsearch = true;
-
-      shiftwidth = 4;
-      tabstop = 4;
-      softtabstop = 4;
-      expandtab = true;
+      backup = false;
+      clipboard = {
+        register = "unnamedplus";
+      };
+      cmdheight = 1;
+      conceallevel = 0;
+      hlsearch = true;
+      ignorecase = true;
+      mouse = "a";
+      showmode = false;
+      showtabline = 1;
+      smartcase = true;
       smartindent = true;
-
-      cursorline = true;
-      number = true;
-      relativenumber = true;
-      numberwidth = 2;
-      ruler = false;
-
       splitbelow = true;
       splitright = true;
+      swapfile = false;
+      termguicolors = true;
+      timeoutlen = 1000;
       undofile = true;
-      undolevels = 10000;
-
-      signcolumn = "yes";
-      cmdheight = 0;
-      cot = ["menu" "menuone" "noselect"];
-      colorcolumn = "120";
-
       updatetime = 100;
-      timeout = true;
-      timeoutlen = 250;
-
-      foldlevel = 99;
-      foldlevelstart = 99;
-      foldenable = true;
-
-      winwidth = 10;
-      winminwidth = 10;
-      equalalways = false;
+      writebackup = false;
+      expandtab = true;
+      shiftwidth = 4;
+      tabstop = 4;
+      cursorline = true;
+      number = true;
+      laststatus = 3;
+      showcmd = false;
+      ruler = false;
+      relativenumber = true;
+      numberwidth = 4;
+      signcolumn = "yes";
+      wrap = false;
+      scrolloff = 0;
+      sidescrolloff = 8;
+      guifont = "monospace:h17";
+      title = false;
     };
   };
 }
