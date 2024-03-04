@@ -34,7 +34,7 @@
   home.packages = with pkgs; [
     ## Gui ##
     obsidian
-    sioyek
+    # sioyek
     bitwarden
     discord
     # todoist-electron
