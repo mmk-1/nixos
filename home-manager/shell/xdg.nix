@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   ### A tidy $HOME is a tidy mind
   # home-manager.users.${config.user.name}.xdg.enable = true;
   xdg.enable = true;

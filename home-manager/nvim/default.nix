@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }: {
   imports = [
     ./keymaps.nix
@@ -45,7 +46,7 @@
 
   programs.nixvim = {
     enable = true;
-    extraPlugins = with pkgs.vimPlugins; [ plenary-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [plenary-nvim];
     enableMan = true;
     # package = pkgs.neovim-nightly;
     colorschemes.catppuccin = {

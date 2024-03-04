@@ -10,34 +10,31 @@
     };
 
     nixvim.url = "github:nix-community/nixvim";
-
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-      system = "x86_64-linux";
-      username = "mmk";
-      hostname = "legion";
-    in
-    {
-      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    system = "x86_64-linux";
+    username = "mmk";
+    hostname = "legion";
+  in {
+    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
-      # Here: NixOS configurations 
+    # Here: NixOS configurations
 
-      # Home-manager configurations
-      homeConfigurations = {
-        "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
-          # pkgs = import nixpkgs { system = "x86_64-linux"; };
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./hosts/legion/home.nix ];
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
+    # Home-manager configurations
+    homeConfigurations = {
+      "${username}@${hostname}" = home-manager.lib.homeManagerConfiguration {
+        # pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [./hosts/legion/home.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
       };
     };
+  };
 }

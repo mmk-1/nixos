@@ -1,9 +1,9 @@
-{ inputs
-, lib
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
 }: {
-
   # home.homedire
 
   imports = [
@@ -13,7 +13,6 @@
 
     ./shell/xdg.nix
     ./shell/zsh.nix
-
   ];
 
   programs.home-manager.enable = true;
@@ -34,11 +33,12 @@
   home.packages = with pkgs; [
     ## Gui ##
     obsidian
-    # sioyek
     bitwarden
     discord
+    ## QT and AppImages don't work on non-nixos
     # todoist-electron
     # dropbox
+    # sioyek
 
     ## cmdline utils ##
     fd

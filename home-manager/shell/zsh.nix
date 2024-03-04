@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }: {
   programs.zsh = {
     enable = true;
@@ -33,7 +34,6 @@
         src = ./p10k-config;
         file = "p10k.zsh";
       }
-
     ];
 
     # zplug = {
