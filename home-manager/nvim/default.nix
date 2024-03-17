@@ -13,7 +13,7 @@
     ./plugins/telescope.nix
 
     # ./plugins/debug.nix
-    # ./plugins/coding.nix
+    ./plugins/coding.nix
     # ./plugins/editor.nix
     # ./plugins/git.nix
     # ./plugins/startup.nix

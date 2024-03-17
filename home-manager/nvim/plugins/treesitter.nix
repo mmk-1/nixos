@@ -25,6 +25,11 @@
           cpp
           json
           python
+          
+          go
+          gomod
+
+          rust
 
           markdown
           markdown_inline

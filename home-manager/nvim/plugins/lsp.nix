@@ -4,7 +4,11 @@
       lsp = {
         enable = true;
 
-        servers.clangd.enable = true;
+        servers = {
+          clangd.enable = true;
+          gopls.enable = true;
+          rust-analyzer.enable = true;
+        };
 
         keymaps = {
           diagnostic = {

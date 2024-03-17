@@ -43,6 +43,9 @@
     ## cmdline utils ##
     fd
     ripgrep
+
+    # Langs
+    rustup
   ];
 
   programs.fzf = {
