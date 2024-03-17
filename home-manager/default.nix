@@ -30,11 +30,12 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    ## Gui ##
-    obsidian
-    bitwarden
-    discord
+    ## Gui (I won't install gui stuff on non-NixOS for now##
+    # obsidian
+    # bitwarden
+    # discord
     ## QT and AppImages don't work on non-nixos
     # todoist-electron
     # dropbox
@@ -44,6 +45,9 @@
     fd
     ripgrep
     rustup
+
+    # Fonts
+    (nerdfonts.override {fonts = ["JetBrainsMono" "FiraCode"];})
   ];
 
   programs.fzf = {
