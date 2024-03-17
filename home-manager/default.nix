@@ -43,6 +43,7 @@
     ## cmdline utils ##
     fd
     ripgrep
+    rustup
   ];
 
   programs.fzf = {

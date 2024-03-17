@@ -9,8 +9,8 @@
           gopls.enable = true;
           rust-analyzer = {
             enable = true;
-            installCargo = true;
-            installRustc = true;
+            # installCargo = true;
+            # installRustc = true;
           };
         };
 
