@@ -1,4 +1,5 @@
 # Roadmap
-- Rust
-- Golang
-- Cmp
+- [ ] Rust
+- [ ] Golang
+- [ ] Copy-paste without register modification
+- [ ] Fonts/icons
