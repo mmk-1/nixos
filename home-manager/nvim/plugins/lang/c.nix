@@ -10,8 +10,8 @@
       # Formatting
       conform-nvim = {
         formattersByFt = {
-          c = [ "clangd" ];
-          cpp = [ "clangd" ];
+          # c = [ "clangd" ];
+          # cpp = [ "clangd" ];
         };
       };
 

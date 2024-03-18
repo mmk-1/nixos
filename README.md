@@ -1,6 +1,7 @@
 # Roadmap
-- [ ] Rust
+- [X] Rust
     - Rust toolchain/cargo/rustup/etc. doesnt work properly.
 - [ ] Golang
 - [ ] Copy-paste without register modification
-- [ ] Fonts/icons
+- [X] Fonts/icons
+- [ ] ftplugins for langs

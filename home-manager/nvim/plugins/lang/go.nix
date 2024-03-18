@@ -11,7 +11,7 @@
       # Formatting
       conform-nvim = {
         formattersByFt = {
-          go = ["goimports"];
+          go = ["goimports" "gofmt"];
         };
       };
 
