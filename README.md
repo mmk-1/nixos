@@ -5,3 +5,5 @@
 - [ ] Copy-paste without register modification
 - [X] Fonts/icons
 - [ ] ftplugins for langs
+- [ ] How to setup keymaps with whichkey
+- [ ] How to setup flash/leap

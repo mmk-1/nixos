@@ -7,8 +7,6 @@
   imports = [
     ./keymaps.nix
     ./options.nix
-    # ./autocmds.nix
-    # ./plugins/whichkey.nix
     ./plugins/telescope.nix
 
     # ./plugins/debug.nix
@@ -17,6 +15,7 @@
     # ./plugins/git.nix
     # ./plugins/startup.nix
     # ./plugins/test.nix
+    ./plugins/flash.nix
 
     ./plugins/lsp.nix
     ./plugins/treesitter.nix
@@ -38,6 +37,7 @@
     colorschemes.catppuccin = {
       enable = true;
       flavour = "mocha";
+      integrations.flash = true;
     };
   };
 }
