@@ -4,15 +4,16 @@
       lsp = {
         enable = true;
 
-        servers = {
-          clangd.enable = true;
-          gopls.enable = true;
-          rust-analyzer = {
-            enable = true;
-            installCargo = false;
-            installRustc = false;
-          };
-        };
+        # Each lang will have its settings and servers in lang/*.nix
+        # servers = {
+        #   clangd.enable = true;
+        #   gopls.enable = true;
+        #   rust-analyzer = {
+        #     enable = true;
+        #     installCargo = false;
+        #     installRustc = false;
+        #   };
+        # };
 
         keymaps = {
           diagnostic = {

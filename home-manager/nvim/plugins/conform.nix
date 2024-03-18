@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       conform-nvim = {
@@ -6,10 +6,6 @@
         formatOnSave = {
           lspFallback = true;
           timeoutMs = 500;
-        };
-        formattersByFt = {
-          c = [ "clangd" ];
-          cpp = [ "clangd" ];
         };
       };
     };

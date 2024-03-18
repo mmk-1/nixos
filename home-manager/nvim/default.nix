@@ -8,7 +8,6 @@
     ./keymaps.nix
     ./options.nix
     # ./autocmds.nix
-    # ./reload.nix
     # ./plugins/whichkey.nix
     ./plugins/telescope.nix
 
@@ -26,22 +25,9 @@
     # ./plugins/colorscheme.nix
     # ./plugins/ui.nix
 
-    # ./plugins/ai.nix
-    # ./plugins/training.nix
-    # ./plugins/notes.nix
-
-    # ./plugins/lang/css.nix
-    # ./plugins/lang/c.nix
-    # ./plugins/lang/docker.nix
-    # ./plugins/lang/go.nix
-    # ./plugins/lang/lua.nix
-    # ./plugins/lang/kdl.nix
-    # ./plugins/lang/json.nix
-    # ./plugins/lang/html.nix
-    # ./plugins/lang/nix.nix
-    # ./plugins/lang/markdown.nix
-    # ./plugins/lang/python.nix
-    # ./plugins/lang/yaml.nix
+    ./plugins/lang/c.nix
+    ./plugins/lang/go.nix
+    ./plugins/lang/rust.nix
   ];
 
   programs.nixvim = {

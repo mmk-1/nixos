@@ -94,7 +94,7 @@
 
         window = {
           completion = {
-            winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
+            winhighlight = "FloatBorder:CmpBorder";
             scrollbar = false;
             sidePadding = 0;
             border = [
@@ -120,7 +120,7 @@
               "╰"
               "│"
             ];
-            winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel";
+            winhighlight = "FloatBorder:CmpBorder";
           };
         };
 
