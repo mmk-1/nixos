@@ -16,7 +16,7 @@
     };
 
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     # This is relative to the $HOME
