@@ -43,16 +43,12 @@
           "v"
         ];
       }
-      {
-        action = "'_dP";
-        key = "p";
-        options = {
-          desc = "Paste without updating buffer";
-        };
-        mode = [
-          "v"
-        ];
-      }
     ];
+
+    # Keymaps that couldn't be set via nixvim for some reason.
+    extraConfigLua = ''
+      -- Preserves the highlighted & yanked text in register
+      vim.keymap.set("x", "p", [["_dP]])
+    '';
   };
 }
