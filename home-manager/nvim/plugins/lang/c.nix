@@ -1,6 +1,7 @@
-{ pkgs
-, config
-, ...
+{
+  pkgs,
+  config,
+  ...
 }: {
   programs.nixvim = {
     plugins = {
@@ -10,13 +11,17 @@
       # Formatting
       conform-nvim = {
         formattersByFt = {
-          # c = [ "clangd" ];
-          # cpp = [ "clangd" ];
+          c = ["clangd"];
+          cpp = ["clangd"];
         };
       };
 
-      # Linting (TBD)
-
+      treesitter = {
+        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          c
+          cpp
+        ];
+      };
     };
   };
 }

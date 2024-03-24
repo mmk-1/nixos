@@ -20,16 +20,13 @@
         };
 
         grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-          nix
-          c
-          cpp
           json
-          python
+          toml
           
-          go
-          gomod
+          python
 
-          rust
+          vim
+          vimdoc
 
           markdown
           markdown_inline

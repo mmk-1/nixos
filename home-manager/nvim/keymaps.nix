@@ -1,5 +1,6 @@
 {
   programs.nixvim = {
+
     keymaps = [
       # Move highlighted blocks
       {

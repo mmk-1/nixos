@@ -4,17 +4,6 @@
       lsp = {
         enable = true;
 
-        # Each lang will have its settings and servers in lang/*.nix
-        # servers = {
-        #   clangd.enable = true;
-        #   gopls.enable = true;
-        #   rust-analyzer = {
-        #     enable = true;
-        #     installCargo = false;
-        #     installRustc = false;
-        #   };
-        # };
-
         keymaps = {
           diagnostic = {
             "]d" = "goto_next";
@@ -24,6 +13,7 @@
               desc = "Open Diagnostic List";
             };
           };
+          
           lspBuf = {
             K = "hover";
             gD = "declaration";

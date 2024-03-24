@@ -15,7 +15,7 @@
     # ./plugins/git.nix
     # ./plugins/startup.nix
     # ./plugins/test.nix
-    ./plugins/flash.nix
+    ./plugins/leap.nix
 
     ./plugins/lsp.nix
     ./plugins/treesitter.nix
@@ -34,10 +34,12 @@
     extraPlugins = with pkgs.vimPlugins; [plenary-nvim];
     enableMan = true;
     # package = pkgs.neovim-nightly;
+
     colorschemes.catppuccin = {
       enable = true;
       flavour = "mocha";
-      integrations.flash = true;
+      # integrations.flash = true;
+      integrations.leap = true;
     };
   };
 }

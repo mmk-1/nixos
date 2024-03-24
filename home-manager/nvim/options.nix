@@ -5,11 +5,17 @@
       maplocalleader = " ";
     };
 
+    clipboard = {
+      providers.wl-copy.enable = true;
+      register = "unnamedplus";
+    };
+
     options = {
       backup = false;
-      clipboard = {
-        register = "unnamedplus";
-      };
+      # We don't need below when it is set above cuz it causes conflict in nix.
+      # clipboard = {
+      #   register = "unnamedplus";
+      # };
       cmdheight = 1;
       conceallevel = 0;
       hlsearch = true;

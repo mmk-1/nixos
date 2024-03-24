@@ -5,22 +5,30 @@
 }: {
   programs.nixvim = {
     plugins = {
+      nix.enable = true;
+      hmts.enable = true;
+      nix-develop.enable = true;
+
       # LSP server
-      lsp.servers.gopls.enable = true;
+      lsp.servers.nil_ls = {
+        enable = true;
+      };
 
       # Formatting
       conform-nvim = {
         formattersByFt = {
-          go = ["goimports" "gofmt"];
+          nix = ["alejandra"];
         };
+        # formatters = {
+        #   alejandra = {
+        #     command = "${pkgs.alejandra}/bin/alejandra";
+        #   };
+        # };
       };
-      
+
       treesitter = {
         grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-          go
-          gomod
-          gosum
-          gowork
+          nix
         ];
       };
     };
