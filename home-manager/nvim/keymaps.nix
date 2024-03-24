@@ -1,6 +1,5 @@
 {
   programs.nixvim = {
-
     keymaps = [
       # Move highlighted blocks
       {
@@ -39,6 +38,16 @@
         key = ">";
         options = {
           desc = "Indent right";
+        };
+        mode = [
+          "v"
+        ];
+      }
+      {
+        action = "'_dP";
+        key = "p";
+        options = {
+          desc = "Paste without updating buffer";
         };
         mode = [
           "v"

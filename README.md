@@ -1,4 +1,5 @@
 # Roadmap
+- [x] unnamed register, global yanking
 - [ ] Copy-paste without register modification
 - [X] Fonts/icons
 - [ ] ftplugins for langs
