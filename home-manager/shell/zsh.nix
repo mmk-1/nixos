@@ -48,6 +48,7 @@
     initExtra = ''
       setopt appendhistory
       bindkey "^R" history-incremental-search-backward
+      export PATH=$PATH:/home/mmk/.config/emacs/bin
     '';
   };
 }

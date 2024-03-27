@@ -9,7 +9,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
-    ./nvim
+    ./editors/nvim
 
     ./shell/xdg.nix
     ./shell/zsh.nix
